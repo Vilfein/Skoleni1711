@@ -20,6 +20,9 @@ namespace ToDoAppWebAPI.Data
             .Entity<ToDoItemEntity>()
             .HasOne(t => t.Category)
             .WithMany(c => c.ToDoItemEntities);
+            //.OnDelete(DeleteBehavior.Restrict);
+            // DeleteBehavior.Cascade pro smazání všech studentů
+
 
 
 
