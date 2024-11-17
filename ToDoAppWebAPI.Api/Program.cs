@@ -19,10 +19,12 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
         .UseLazyLoadingProxies()
         .ConfigureWarnings(x => x.Ignore(CoreEventId.LazyLoadOnDisposedContextWarning)));
 
-builder.Services.AddScoped<ITodoItemRepository, ToDoItemRepository>();
 builder.Services.AddAutoMapper(typeof(AutomapperConfigurationProfile));
 builder.Services.AddScoped<ITodoItemRepository, ToDoItemRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ITodoItemManager, ToDoItemManager>();
+builder.Services.AddScoped<ICategoryManager, CategoryManager>();
+
 
 var app = builder.Build();
 app.MapControllers();

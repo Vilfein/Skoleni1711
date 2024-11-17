@@ -12,6 +12,9 @@ namespace ToDoAppWebAPI.Api
             CreateMap<ToDoItemEntity, ToDoItemDTO>();
             CreateMap<ToDoItemDTO, ToDoItemEntity>();
 
+            CreateMap<CategoryEntity, CategoryDTO>();
+            CreateMap<CategoryDTO,CategoryEntity>();
+
         }
     }
 }
