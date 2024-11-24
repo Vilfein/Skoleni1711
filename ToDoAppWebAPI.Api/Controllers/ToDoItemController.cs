@@ -17,5 +17,14 @@ namespace ToDoAppWebAPI.Api.Controllers
 
         [HttpGet("todoitems")]
         public IEnumerable<ToDoItemDTO> GetAll() => toDoItemManager.GetAll();
+
+
+        [HttpPost("todoitem")]
+        public ToDoItemDTO Create([FromBody] ToDoItemDTO todoItemDTO)
+        {
+            return toDoItemManager.Create(todoItemDTO);
+        }
     }
+
 }
+

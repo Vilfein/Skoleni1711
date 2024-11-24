@@ -17,10 +17,18 @@ namespace ToDoAppWebAPI.Api.Managers
             this.mapper = mapper;
         }
 
+        public ToDoItemDTO Create(ToDoItemDTO toDoItemDTO)
+        {
+            var dto = todoItemRepository.Insert(mapper.Map<ToDoItemEntity>(toDoItemDTO));
+            return mapper.Map<ToDoItemDTO>(dto);
+        }
+
         public IList<ToDoItemDTO> GetAll()
         {
             IList<ToDoItemEntity> todoEntities = todoItemRepository.GetAll();
             return mapper.Map<IList<ToDoItemDTO>>(todoEntities); 
         }
+
+        
     }
 }
